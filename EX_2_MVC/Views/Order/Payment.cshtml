@@ -1,0 +1,46 @@
+﻿
+@* @model EX_2_MVC.Models.PaymentViewModel
+ *@
+ @model EX_2_MVC.ViewModels.PaymentViewModel
+
+
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<h2>Payment</h2>
+
+<form asp-action="Payment" method="post">
+    <input type="hidden" asp-for="OrderId" />
+
+    <div class="form-group">
+        <label>Payment Method</label>
+        <select asp-for="PaymentMethod" class="form-control" id="paymentMethod">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+            <option value="UPI">UPI</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="cardField" style="display: none;">
+        <label>Card Number</label>
+        <input asp-for="CardNumber" class="form-control" />
+    </div>
+
+    <div class="form-group" id="upiField" style="display: none;">
+        <label>UPI ID</label>
+        <input asp-for="UPIId" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Pay</button>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById("paymentMethod").addEventListener("change", function () {
+            var method = this.value;
+            document.getElementById("cardField").style.display = (method === "Card") ? "block" : "none";
+            document.getElementById("upiField").style.display = (method === "UPI") ? "block" : "none";
+        });
+    </script>
+}

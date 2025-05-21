@@ -1,0 +1,43 @@
+﻿@model EX_2_MVC.Models.Order
+
+@{
+    ViewData["Title"] = "Order Summary";
+}
+
+<h2>Order Summary</h2>
+
+<p><strong>Order ID:</strong> @Model.Id</p>
+<p><strong>Status:</strong> @Model.Status</p>
+<p><strong>Created At:</strong> @Model.CreatedAt</p>
+
+<h4>Items</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.MenuItem.Name</td>
+                <td>@item.MenuItem.Price.ToString("C")</td>
+                <td>@item.Quantity</td>
+                <td>@(item.MenuItem.Price * item.Quantity).ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <strong>Order Total:</strong>
+    @Model.Items.Sum(i => i.MenuItem.Price * i.Quantity).ToString("C")
+</p>
+
+<a asp-action="Payment" asp-route-orderId="@Model.Id" class="btn btn-success mt-3">Proceed to Payment</a>
+@* <a asp-controller="Home" asp-action="UserDashboard" class="btn btn-primary">Back to Dashboard</a>
+ *@

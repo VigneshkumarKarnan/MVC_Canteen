@@ -1,0 +1,15 @@
+﻿@model EX_2_MVC.Models.Order
+
+@{
+    ViewData["Title"] = "Payment Successful";
+}
+
+<h2>Payment Successful</h2>
+
+<p><strong>Order ID:</strong> @Model.Id</p>
+<p><strong>Status:</strong> @Model.Status</p>
+<p><strong>Payment Method:</strong> @ViewBag.PaymentMethod</p>
+
+<a asp-controller="Home" asp-action="UserDashboard" class="btn btn-primary mt-3">Go to Dashboard</a>
+
+

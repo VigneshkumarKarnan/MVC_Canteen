@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EX_2_MVC.Models.MenuItem>
+@{
+    ViewData["Title"] = "Menu";
+    var orderId = Context.Request.Query["orderId"];
+}
+
+<h2>Menu</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Add</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <form asp-action="AddToCart" asp-controller="Order" method="post">
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price.ToString("C")</td>
+                <td>@item.Description</td>
+                <td>
+                    <input type="number" name="quantity" value="1" min="1" class="form-control" style="width: 80px;" />
+                </td>
+                <td>
+                    <input type="hidden" name="orderId" value="@orderId" />
+                    <input type="hidden" name="menuItemId" value="@item.Id" />
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </td>
+            </tr>
+            </form>
+        }
+    </tbody>
+</table>
+
+<a asp-action="ViewCart" asp-route-orderId="@orderId" class="btn btn-success">View Cart</a>

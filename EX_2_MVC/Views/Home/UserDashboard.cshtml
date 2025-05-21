@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "User Dashboard";
+    var username = ViewBag.Username ?? "User";
+}
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h2>Welcome, @username!</h2>
+        <p class="lead">This is your user dashboard.</p>
+    </div>
+</div>
+
+<div class="text-center">
+    <a asp-action="TakeOrder" asp-controller="Order" class="btn btn-success">Take Order</a>
+</div>

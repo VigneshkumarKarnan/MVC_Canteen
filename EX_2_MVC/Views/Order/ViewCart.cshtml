@@ -4,7 +4,7 @@
     ViewData["Title"] = "Your Cart";
 }
 
-<h2>Your Cart</h2>
+<h2 class="mb-4">Your Cart</h2>
 
 @if (!Model.Any())
 {
@@ -12,7 +12,7 @@
 }
 else
 {
-    <table class="table">
+    <table class="table table-hover table-primary">
         <thead>
             <tr>
                 <th>Item</th>
@@ -34,11 +34,11 @@ else
         </tbody>
     </table>
 
-    <p><strong>Total: </strong> @Model.Sum(i => i.Price * i.Quantity).ToString("C")</p>
+    <p class="ms-auto text-end"><strong>Total: </strong> @Model.Sum(i => i.Price * i.Quantity).ToString("C")</p>
 
     <form asp-action="ConfirmOrder" asp-controller="Order" method="post">
         <input type="hidden" name="orderId" value="@ViewBag.OrderId" />
-        <button type="submit" class="btn btn-success">Confirm Order</button>
+        <button type="submit" class="btn btn-success ms-auto mt-3">Confirm Order</button>
     </form>
 
 }

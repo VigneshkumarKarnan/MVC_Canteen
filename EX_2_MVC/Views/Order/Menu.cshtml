@@ -4,9 +4,9 @@
     var orderId = Context.Request.Query["orderId"];
 }
 
-<h2>Menu</h2>
+<h2 class="mb-4">Menu</h2>
 
-<table class="table">
+<table class="table table-hover table-primary">
     <thead>
         <tr>
             <th>Item</th>
@@ -38,4 +38,4 @@
     </tbody>
 </table>
 
-<a asp-action="ViewCart" asp-route-orderId="@orderId" class="btn btn-success">View Cart</a>
+<a asp-action="ViewCart" asp-route-orderId="@orderId" class="btn btn-success ms-auto mt-3">View Cart</a>

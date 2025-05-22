@@ -4,11 +4,12 @@
     ViewData["Title"] = "Order Summary";
 }
 
-<h2>Order Summary</h2>
-
-<p><strong>Order ID:</strong> @Model.Id</p>
-<p><strong>Status:</strong> @Model.Status</p>
-<p><strong>Created At:</strong> @Model.CreatedAt</p>
+<h2 class="mb-4">Order Summary</h2>
+<div class="row justify-content-end">
+<div class="col-6"><strong>Order ID:</strong> @Model.Id</div>
+<div class="col-6 text-end"><strong>Created At:</strong> @Model.CreatedAt</div>
+<div class="col-6 ms-auto text-end"><strong>Status:</strong> @Model.Status</div>
+</div>
 
 <h4>Items</h4>
 <table class="table">
@@ -33,11 +34,11 @@
     </tbody>
 </table>
 
-<p>
+<p class="ms-auto text-end">
     <strong>Order Total:</strong>
     @Model.Items.Sum(i => i.MenuItem.Price * i.Quantity).ToString("C")
 </p>
 
-<a asp-action="Payment" asp-route-orderId="@Model.Id" class="btn btn-success mt-3">Proceed to Payment</a>
+<a asp-action="Payment" asp-route-orderId="@Model.Id" class="btn btn-success mt-3 ms-auto">Proceed to Payment</a>
 @* <a asp-controller="Home" asp-action="UserDashboard" class="btn btn-primary">Back to Dashboard</a>
  *@

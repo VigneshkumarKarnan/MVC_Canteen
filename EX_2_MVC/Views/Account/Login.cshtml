@@ -4,9 +4,9 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="container mt-5">
+<div class="container p-3" style="background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);">
     <div class="row justify-content-center">
-        <div class="col-md-5">
+        <div class="col-md-4 col-sm-10 col-12">
             <div class="card shadow rounded-4">
                 <div class="card-body">
                     <h2 class="text-center mb-4">Login</h2>
@@ -21,7 +21,7 @@
                             <input asp-for="Password" class="form-control" placeholder="Enter your password" type="password" />
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
-                        <button type="submit" class="btn btn-success w-100">Login</button>
+                        <button type="submit" class="btn btn-success w-auto px-4 py-2">Login</button>
                     </form>
                 </div>
             </div>

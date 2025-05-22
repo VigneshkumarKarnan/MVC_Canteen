@@ -4,12 +4,12 @@
     ViewData["Title"] = "Payment Successful";
 }
 
-<h2>Payment Successful</h2>
-
+<h2 class="text-center">Payment Successful</h2>
+<img src="add url for tick mark with green round background" alt="SuccessICon" class="img-fluid mx-auto" height="120px"/>
 <p><strong>Order ID:</strong> @Model.Id</p>
 <p><strong>Status:</strong> @Model.Status</p>
 <p><strong>Payment Method:</strong> @ViewBag.PaymentMethod</p>
 
-<a asp-controller="Home" asp-action="UserDashboard" class="btn btn-primary mt-3">Go to Dashboard</a>
+<a asp-controller="Home" asp-action="UserDashboard" class="btn btn-primary mt-3 mx-auto">Go to Dashboard</a>
 
 
